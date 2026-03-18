@@ -1,7 +1,28 @@
 # Voice Library — Voice Governance
 
+**Voice composition library defining character archetypes, tone governance, and influence references for consistent AI voice output.**
+
+This library provides the structured creative infrastructure needed to keep AI-generated text consistently in character across time. It defines each character's identity, positive and negative calibration examples, and the protocols used to verify that an LLM is producing output that matches the intended voice — before that output reaches users.
+
 > The authoritative source for character voice, tone, and identity across Valet Studio and related projects.  
 > This repo contains no application logic. It is voice infrastructure only.
+
+---
+
+## Ecosystem Context
+
+Voice Library sits at the intersection of **natural language generation**, **AI governance**, and **creative composition**. It addresses a structural problem common to all LLM-powered products: generated text tends to drift toward a statistical average, flattening the distinctive voice that makes characters recognizable and products coherent.
+
+This library solves that by treating voice as a first-class engineering concern, not a prompt-engineering afterthought:
+
+| Layer | What it provides |
+|-------|-----------------|
+| **Character archetypes** (`bible/`) | Canonical identity, rules, and what the character is and is not |
+| **Tone governance** (`anchors/`, `drift/`) | Positive and negative calibration examples — what right sounds like, and what wrong sounds like |
+| **Influence references** (`meta/voice_composition/`) | Named external voices that shaped each character, with documented boundaries and drift risks |
+| **Calibration protocols** (`calibration/`) | Structured prompts for verifying a model is in voice before going live |
+
+The library is language-agnostic at the file level (plain Markdown and text) and is designed to be consumed by any LLM integration layer. The parent project, [Valet](https://github.com/Swixixle/Valet), is TypeScript-based and loads these files as system-level conditioning material.
 
 ---
 
